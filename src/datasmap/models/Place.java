@@ -16,7 +16,7 @@ public class Place {
 	public Place(String address, double latitude, double longitude, Place parent) {
 		this.address = address;
 		this.latitude = latitude;
-		this.longitude = longitude;
+		this.longitude = longitude;yeah
 		this.parent = parent;
 	}
 
