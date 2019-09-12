@@ -1,5 +1,6 @@
 package datasmap.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Place {
@@ -16,15 +17,35 @@ public class Place {
 	public Place(String address, double latitude, double longitude, Place parent) {
 		this.address = address;
 		this.latitude = latitude;
-		this.longitude = longitude;yeah
+		this.longitude = longitude;
 		this.parent = parent;
+		sites = new ArrayList<Site>();
 	}
 
 	public String getAddress() {
-		//retourner l'adresse complète du lieu
-		return address;
+		String result = address;
+		if(parent!=null) {
+			result+=", "+parent.getAddress();
+		}
+		return result;
 	}
-	public String getAddress(String niveau) {
+	public Place getParent() {
+		return parent;
+	}
+
+	public void setParent(Place parent) {
+		this.parent = parent;
+	}
+
+	public List<Site> getSites() {
+		return sites;
+	}
+
+	public void setSites(List<Site> sites) {
+		this.sites = sites;
+	}
+
+	public String getAddress(int niveau) {
 		//retourner l'adresse complète du lieu
 		return address;
 	}
